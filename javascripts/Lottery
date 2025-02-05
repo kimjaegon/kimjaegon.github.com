@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 생성기</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #result { font-size: 24px; margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>🎉 로또 번호 생성기 🎉</h2>
+    <button onclick="generateLotto()">로또 번호 뽑기</button>
+    <div id="result">여기에 번호가 표시됩니다.</div>
+
+    <script>
+        function generateLotto() {
+            let numbers = [];
+            while (numbers.length < 6) {
+                let num = Math.floor(Math.random() * 45) + 1;
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
+            numbers.sort((a, b) => a - b);
+            document.getElementById("result").innerText = "당첨 번호: " + numbers.join(", ");
+        }
+    </script>
+</body>
+</html>
